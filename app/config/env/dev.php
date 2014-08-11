@@ -16,15 +16,16 @@ return array(
 		),
 	),
 	'components' => array(
-//		modify to suit your needs
-//		'db' => array(
-//			'connectionString' => '{CONNECTION_STRING}',
-//			'username' => '{USERNAME}',
-//			'password' => '{PASSWORD}',
-//			'enableProfiling' => true,
-//			'enableParamLogging' => true,
-//			'charset' => 'utf8',
-//		),
+		//modify to suit your needs
+		'db' => array(
+                    'connectionString' => 'mysql:host=localhost;dbname=insmart',
+                    'username' => 'root',
+                    'password' => '',
+                    'enableProfiling' => true,
+                    'enableParamLogging' => true,
+                    'charset' => 'utf8',
+                    'tablePrefix' => 'sa_',
+		),
 	),
 	'params' => array(
 		'yii.handleErrors'   => true,
