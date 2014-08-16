@@ -1,0 +1,15 @@
+.personal_cont {
+    margin-top: 41px;
+}
+.progress_bar {
+    margin-left: 0px !important;
+}
+.wrapper{
+    width: 570px;
+    height: 150px;
+    margin: 10px auto;	
+    background: #fff;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+}
