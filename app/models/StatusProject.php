@@ -23,14 +23,14 @@ class StatusProject extends CActiveRecord{
     public function attributeLabels(){
         return array(
             'id' => 'ID',
-            'name_project' => 'Name Project',
-            'login' => 'Login',
-            'password' => 'Password',
-            'start' => 'Start',
-            'stage_one' => 'Stage One',
-            'stage_two' => 'Stage Two',
-            'stage_three' => 'Stage Three',
-            'end' => 'End',
+            'name_project' => 'Проект',
+            'login' => 'Логин',
+            'password' => 'Пароль',
+            'start' => 'Старт проекта',
+            'stage_one' => 'Конец 1 этапа',
+            'stage_two' => 'Конец 2 этапа',
+            'stage_three' => 'Конец 3 этапа',
+            'end' => 'Финиш проекта',
         );
     }
 
@@ -49,6 +49,9 @@ class StatusProject extends CActiveRecord{
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>3,
+            ),
         ));
     }
 

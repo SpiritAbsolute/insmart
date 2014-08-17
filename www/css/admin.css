@@ -1,0 +1,32 @@
+input[type="text"] {
+    padding: 4px 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.btn {
+    border-radius: 2px !important;
+    cursor: pointer;
+    font-family: 'PFDinDisplayProThin' !important;
+    font-size: 18px;
+    border: none;
+    color: white;
+    background: #C04B75;
+    display: inline-block;
+    width: auto;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.toolbar {
+    padding-top: 20px;
+}

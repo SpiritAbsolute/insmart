@@ -21,7 +21,8 @@
         <link rel="stylesheet" href="/css/jquery-ui-1.9.2.custom.min.css">
 	<link rel="stylesheet" href="/css/main.css">
         
-        <script src="/js/libs/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="/js/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/js/libs/bootstrap.min.js"></script>
         <script src="/js/plugins.js"></script>
         <script src="/js/main.js"></script>
@@ -32,7 +33,24 @@
 	your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
 	improve your experience.</p>
 <![endif]-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Administrator</a>
 
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a class="exit" href="#">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <?php echo $content; ?>
 </body>
 </html>

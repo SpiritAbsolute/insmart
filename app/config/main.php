@@ -7,6 +7,7 @@ use Yiinitializr\Helpers\ArrayX;
 // web application configuration
 return ArrayX::merge(array(
     'name' => 'Состояние проектов',
+    'language' => 'ru',
 
     // path aliases
     'aliases' => array(
