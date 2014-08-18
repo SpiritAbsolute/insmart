@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="/css/main.css">
         
         <script src="/js/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="/js/libs/jquery-ui-1.9.2.custom.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/js/libs/bootstrap.min.js"></script>
         <script src="/js/plugins.js"></script>
@@ -41,7 +42,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Administrator</a>
+            <a class="brand" href="<?= $this->createUrl('/admin') ?>">Administrator</a>
 
             <div class="nav-collapse collapse">
                 <ul class="nav">
