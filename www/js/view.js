@@ -6,7 +6,7 @@ window.onload = function() {
     // Получаем значение для 100% и для х%. Находим х%
     var value_100 = max-min;
     var value_x = max-now;
-    var procent = value_x*100/value_100;
+    var procent = 100-(value_x*100/value_100);
     window.interest = Math.round(procent);
     document.getElementById('interest').innerHTML = interest + ' %';
     document.getElementById('progress').style.width = interest * 5 + 'px';

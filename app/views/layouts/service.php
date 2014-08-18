@@ -18,10 +18,10 @@
 	<meta name="viewport" content="width=device-width">
         
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/jquery-ui-1.9.2.custom.min.css">
 	<link rel="stylesheet" href="/css/main.css">
         
-        <script src="/js/libs/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="/js/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/js/libs/bootstrap.min.js"></script>
         <script src="/js/plugins.js"></script>
         <script src="/js/main.js"></script>
