@@ -30,12 +30,20 @@
         <?php $this->endWidget(); ?>
         <div class="wrapper">
             <br />
-            <div style="width: 500px; border: 1px solid #666; margin: 0 auto;">
-                <center style="color: #666; position: absolute; margin: 15px 0 0 235px;" id="interest">
-                        0 %
-                </center>
-            <img id="progress" style="width: 0; height: 50px;" src="http://sergey-oganesyan.ru/wp-content/uploads/2014/01/prograss.jpg" />
+            <div class="strip_bar">
+                <center class="strip_bar_center" id="interest">0 %</center>
+            <img class="img_strip_bar" id="progress" src="http://sergey-oganesyan.ru/wp-content/uploads/2014/01/prograss.jpg" />
             </div>
         </div>
+        
+        <div class="legend">
+            <ul>
+                <li><div class="one"></div><span>Изготовление и согласование макета</span></li>
+                <li><div class="two"></div><span>Разработка и утверждение проекта</span></li>
+                <li><div class="three"></div><span>Согласование и внесение корректировок</span></li>
+                <li><div class="four"></div><span>Сдача проекта</span></li>
+            </ul>
+    	</div>
+        
     </div>
 </div>

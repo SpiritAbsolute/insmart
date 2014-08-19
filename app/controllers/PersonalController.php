@@ -16,6 +16,9 @@ class PersonalController extends CController{
         if(isset($_POST['LoginForm'])){
             $model->attributes=$_POST['LoginForm'];
             if($model->validate() && $model->login()){
+                session_start();
+                unset($_SESSION['check_login']);
+                $_SESSION['check_login']=$model->login();
                 $this->redirect('personal/view/id/'.$model->login().'');
             }else{
                 $http = new CHttpRequest();
@@ -32,12 +35,17 @@ class PersonalController extends CController{
     }
     
     public function actionView($id=false){
-        $model = new StatusProject;
-        $model = StatusProject::model()->findByPk($id);
-        $file = Yii::app()->getClientScript();
-        $file->registerScriptFile('/js/view.js');
-        $file->registerCssFile('/css/view.css');
-        $this->render('personal', array('model'=>$model));
+        session_start();
+        if($_SESSION['check_login']==$id){
+            $model = new StatusProject;
+            $model = StatusProject::model()->findByPk($id);
+            $file = Yii::app()->getClientScript();
+            $file->registerScriptFile('/js/view.js');
+            $file->registerCssFile('/css/view.css');
+            $this->render('personal', array('model'=>$model));
+        }else{
+            $this->redirect('/personal');
+        }
     }
     
     public function loadModel($id){

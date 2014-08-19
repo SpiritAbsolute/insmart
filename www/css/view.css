@@ -1,9 +1,49 @@
 .wrapper{
-    width: 570px;
-    height: 150px;
-    margin: 10px auto;	
+    width: 100%;
+    margin: 0px auto;	
+    margin-top: 40px;
+    margin-bottom: 70px;
     background: #fff;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
+}
+.strip_bar{
+    width: 100%; 
+    border: 1px solid #666; 
+    margin: 0 auto;
+}
+.strip_bar_center{
+    color: #666; 
+    position: absolute; 
+    margin: 0px 0 0 470px;
+}
+.img_strip_bar{
+    width: 0; 
+    height: 20px;
+}
+.legend .one {
+    background: #D3366F;
+}
+.legend .two {
+    background: #4CDAB0;
+}
+.legend .three {
+    background: #CEE8E7;
+}
+.legend .four {
+    background: #6FA8AC;
+}
+.legend ul li > div {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 20px;
+    float: left;
+}
+.legend ul li {
+    list-style-type: none;
+    font-size: 16px;
+    display: block;
+    margin: 30px 0;
 }

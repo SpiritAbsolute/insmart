@@ -9,7 +9,7 @@ window.onload = function() {
     var procent = 100-(value_x*100/value_100);
     window.interest = Math.round(procent);
     document.getElementById('interest').innerHTML = interest + ' %';
-    document.getElementById('progress').style.width = interest * 5 + 'px';
+    document.getElementById('progress').style.width = interest * 9.42 + 'px';
 
     // Для получения значения шага в 1% узнаем разницу между началом и концом это 100% и вычисляем 1% от нее и умножаем на 1000мс, получаем шаг var step
     var step = (value_100/100)*1000;
@@ -22,11 +22,11 @@ function go(){
     if(interest != 100) {
         interest++;
         document.getElementById('interest').innerHTML = interest + ' %';
-        document.getElementById('progress').style.width = interest * 5 + 'px';
+        document.getElementById('progress').style.width = interest * 9.42 + 'px';
     }
     else{
         document.getElementById('interest').innerHTML = 'Загрузка завершена';
-        document.getElementById('interest').style.margin = '15px 0 0 186px';
+        document.getElementById('interest').style.margin = '0px 0 0 400px';
     }
 }
 
