@@ -96,8 +96,8 @@
     </div>
 
     <div class="buttons">
-        <?php echo CHtml::htmlButton('Отмена', array('id'=>'cancel')); ?>
-        <?php echo CHtml::submitButton('Создать', array('id'=>'save')); ?>
+        <?php echo CHtml::submitButton('Cохранить', array('id'=>'save')); ?>
+        <?php echo CHtml::htmlButton('Отменить', array('id'=>'cancel')); ?>
     </div>
 
 <?php $this->endWidget(); ?>

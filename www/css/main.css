@@ -4,7 +4,32 @@
 .progress_bar {
     margin-left: 0px !important;
 }
+.btn{
+    border-radius: 2px !important;
+    cursor: pointer;
+    font-family: 'PFDinDisplayProThin' !important;
+    font-size: 18px;
+    border: none;
+    color: white;
+    background: #C04B75;
+    display: inline-block;
+    width: auto;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.btn:hover {background: #A03D60;}
+.btn i {font-size: 16px; margin-right: 10px;}
 
+.navbar-inverse .navbar-inner {
+    background: #985182;
+    background: -moz-linear-gradient(left, #985182 0%, #564d93 50%, #87a2ca 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #985182), color-stop(50%, #564d93), color-stop(100%, #87a2ca));
+    background: -webkit-linear-gradient(left, #985182 0%, #564d93 50%, #87a2ca 100%);
+    background: -o-linear-gradient(left, #985182 0%, #564d93 50%, #87a2ca 100%);
+    background: -ms-linear-gradient(left, #985182 0%, #564d93 50%, #87a2ca 100%);
+    background: linear-gradient(to right, #985182 0%, #564d93 50%, #87a2ca 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#985182', endColorstr='#87a2ca',GradientType=1 );
+}
 
 
 

@@ -36,6 +36,8 @@
             </div>
         </div>
         
+        <div id="progressbar"></div>
+        
         <div class="legend">
             <ul>
                 <li><div class="one"></div><span>Изготовление и согласование макета</span></li>
