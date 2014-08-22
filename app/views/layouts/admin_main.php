@@ -24,7 +24,8 @@
         
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/jquery-ui.min.css">
-	<link rel="stylesheet" href="/css/main.css">     
+	<link rel="stylesheet" href="/css/main.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -39,7 +40,7 @@
 
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li><a class="exit" href="#">Выход</a></li>
+                    <li><a href="#">Выход</a></li>
                 </ul>
             </div>
         </div>

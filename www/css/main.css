@@ -1,24 +1,9 @@
 .personal_cont {
-    margin-top: 41px;
+    margin-top: 45px;
 }
 .progress_bar {
     margin-left: 0px !important;
 }
-.btn{
-    border-radius: 2px !important;
-    cursor: pointer;
-    font-family: 'PFDinDisplayProThin' !important;
-    font-size: 18px;
-    border: none;
-    color: white;
-    background: #C04B75;
-    display: inline-block;
-    width: auto;
-    padding: 5px 10px;
-    text-decoration: none;
-}
-.btn:hover {background: #A03D60;}
-.btn i {font-size: 16px; margin-right: 10px;}
 
 .navbar-inverse .navbar-inner {
     background: #985182;
@@ -29,6 +14,27 @@
     background: -ms-linear-gradient(left, #985182 0%, #564d93 50%, #87a2ca 100%);
     background: linear-gradient(to right, #985182 0%, #564d93 50%, #87a2ca 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#985182', endColorstr='#87a2ca',GradientType=1 );
+}
+
+.navbar .nav {
+    float: right;
+}
+.navbar .brand {
+    margin: 0; 
+    padding: 13px 0px 0px 0px; 
+    color: white; 
+    font-size: 18px; 
+    float: left;
+}
+.navbar .nav>li>a:hover { 
+    text-decoration: underline; 
+}
+.navbar .nav>li>a {
+    float: right; 
+    display: inline-block; 
+    padding: 12px; 
+    color: white; 
+    text-decoration: none; 
 }
 
 

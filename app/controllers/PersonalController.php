@@ -36,7 +36,7 @@ class PersonalController extends CController{
     
     public function actionView($id=false){
         session_start();
-        if($_SESSION['check_login']==$id){
+        if(isset($_SESSION['check_login']) and $_SESSION['check_login']==$id){
             $model = new StatusProject;
             $model = StatusProject::model()->findByPk($id);
             $file = Yii::app()->getClientScript();

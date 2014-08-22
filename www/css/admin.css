@@ -3,6 +3,25 @@ input[type="text"] {
     margin-bottom: 0px !important;
 }
 
+/******* Кнопка создания проекта *******/
+.toolbar {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.toolbar a {
+    display: inline-block;
+}
+.btn {
+    border-radius: 2px !important;
+    font-family: 'PFDinDisplayProThin' !important;
+    border: none !important;
+    color: white !important;
+    background: #C04B75 !important;
+}
+.btn i {
+    font-size: 16px;
+    margin-right: 10px;
+}
 .fa {
     display: inline-block;
     font-family: FontAwesome;
@@ -12,25 +31,12 @@ input[type="text"] {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-.btn {
-    border-radius: 2px !important;
-    cursor: pointer;
-    font-family: 'PFDinDisplayProThin' !important;
-    font-size: 18px;
-    border: none;
-    color: white;
-    background: #C04B75;
-    display: inline-block;
-    width: auto;
-    padding: 5px 10px;
-    text-decoration: none;
+.btn:hover {
+    background: #A03D60 !important;
+    color: white !important;
 }
 
-.toolbar {
-    padding-top: 20px;
-}
-
+/****************************************/
 #dialog {
     display: none;
 }

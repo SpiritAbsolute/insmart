@@ -6,6 +6,7 @@
         <a href="#" class="add-project btn" id="create_project"><i class="fa fa-plus-square"></i> Создать проект</a>
     </div>
     <?php $this->widget('zii.widgets.grid.CGridView', array(
+        'template' => "{items}\n{pager}",
         'id'=>'status-project-grid',
         'dataProvider'=>$model->search(),
         'filter'=>$model,
@@ -34,7 +35,16 @@
                 'value'=>'date("d.m.Y", $data->end)'
             ),
             array(
-                'class'=>'CButtonColumn',
+                'class' => 'CButtonColumn',
+                'template' => '{update}&nbsp;{delete}',
+                'buttons' => array(
+                    'update' => array(
+                        'url' => 'Yii::app()->createUrl("admin/update/$data->id")',
+                    ),
+                    'delete' => array(
+                        'url' => 'Yii::app()->createUrl("admin/delete/$data->id")',
+                    ),
+                ),
             ),
         ),
     )); ?>
