@@ -22,20 +22,61 @@ input[type="text"] {
     font-size: 16px;
     margin-right: 10px;
 }
-.fa {
-    display: inline-block;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 .btn:hover {
     background: #A03D60 !important;
     color: white !important;
 }
 
+/****************************************/
+
+/********* Форма создания проекта *******/
+.buttons {
+    margin-top: 15px;
+}
+.save {
+    margin: 10px;
+    width: 100px;
+    outline: none;
+}
+.cancel {
+    background: rgb(153, 153, 153) !important;
+    margin: 10px;
+    width: 100px;
+    outline: none;
+}
+.cancel:hover{
+    background:  rgb(114, 114, 114) !important;
+}
+#dialog {
+    text-align: center;
+}
+#dialog input[type='text'] {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    margin: 15px 0;
+    padding: 7px 5px;
+    font-size: 14px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid rgb(213, 213, 213);
+    height: 35px;
+}
+.ui-dialog-titlebar {
+    display: block;
+    padding-bottom: 5px;
+    margin: 0;
+    text-align: left;
+}
+.ui-widget-header {
+    border: 0px !important;
+    background: #FFFFFF !important;
+    font-weight: normal !important;
+}
+.ui-dialog-titlebar-close{
+    display: none;
+}
 /****************************************/
 #dialog {
     display: none;

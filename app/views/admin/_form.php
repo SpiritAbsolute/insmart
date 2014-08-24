@@ -8,8 +8,6 @@
     'id'=>'status-project-form'
 )); ?>
 
-    <?php echo $form->errorSummary($model); ?>
-
     <div class="row">
         <?php echo $form->labelEx($model,'name_project'); ?>
         <?php echo $form->textField($model,'name_project',array('size'=>40,'maxlength'=>40)); ?>

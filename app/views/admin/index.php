@@ -9,9 +9,12 @@
         'template' => "{items}\n{pager}",
         'id'=>'status-project-grid',
         'dataProvider'=>$model->search(),
-        'filter'=>$model,
+        'cssFile' => Yii::app()->baseUrl . '/css/gridview.css',
         'columns'=>array(
-            'name_project',
+            array(
+                'name'=>'name_project',
+                'header'=>'Проект'
+            ),
             'login',
             'password',
             array(
@@ -39,10 +42,16 @@
                 'template' => '{update}&nbsp;{delete}',
                 'buttons' => array(
                     'update' => array(
+                        'options' => array('title' => 'Редактировать'),
                         'url' => 'Yii::app()->createUrl("admin/update/$data->id")',
+                        'label' => '<i class="edite fa fa-pencil"></i>',
+                        'imageUrl' => false,
                     ),
                     'delete' => array(
+                        'options' => array('title' => 'Удалить'),
                         'url' => 'Yii::app()->createUrl("admin/delete/$data->id")',
+                        'label' => '<i class="delete fa fa-times"></i>',
+                        'imageUrl' => false,
                     ),
                 ),
             ),
@@ -52,62 +61,72 @@
 <div id="dialog">
         
 <?php $form=$this->beginWidget('CActiveForm', array(
-    'id'=>'create-project'
+    'id'=>'create-project',
+    'enableAjaxValidation'=>true,
+    'action'=>$this->createUrl('admin/index'),
+    'enableClientValidation'=>true,
 )); ?>
 
-    <?php echo $form->errorSummary($model); ?>
-
     <div class="">
-        <?php echo $form->labelEx($model,'name_project'); ?>
-        <?php echo $form->textField($model,'name_project',array('size'=>40,'maxlength'=>40)); ?>
+        <?php echo $form->textField($model,'name_project',array('size'=>40,'maxlength'=>40, 'placeholder'=>' Название проекта')); ?>
         <?php echo $form->error($model,'name_project'); ?>
     </div>
 
     <div class="">
-        <?php echo $form->labelEx($model,'login'); ?>
-        <?php echo $form->textField($model,'login',array('size'=>40,'maxlength'=>40)); ?>
+        <?php echo $form->textField($model,'login',array('size'=>40,'maxlength'=>40, 'placeholder'=>' Логин')); ?>
         <?php echo $form->error($model,'login'); ?>
     </div>
 
     <div class="">
-        <?php echo $form->labelEx($model,'password'); ?>
-        <?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>
+        <?php echo $form->textField($model,'password',array('size'=>40,'maxlength'=>40, 'placeholder'=>' Пароль')); ?>
         <?php echo $form->error($model,'password'); ?>
     </div>
 
     <div class="">
-        <?php echo $form->labelEx($model,'start'); ?>
-        <?php echo $form->textField($model,'start'); ?>
+        <?php echo $form->textField($model,'start', array('placeholder'=>' Старт проекта')); ?>
         <?php echo $form->error($model,'start'); ?>
     </div>
 
     <div class="">
-        <?php echo $form->labelEx($model,'stage_one'); ?>
-        <?php echo $form->textField($model,'stage_one'); ?>
+        <?php echo $form->textField($model,'stage_one', array('placeholder'=>' Конец 1 этапа')); ?>
         <?php echo $form->error($model,'stage_one'); ?>
     </div>
 
     <div class="">
-        <?php echo $form->labelEx($model,'stage_two'); ?>
-        <?php echo $form->textField($model,'stage_two'); ?>
+        <?php echo $form->textField($model,'stage_two', array('placeholder'=>' Конец 2 этапа')); ?>
         <?php echo $form->error($model,'stage_two'); ?>
     </div>
 
     <div class="">
-        <?php echo $form->labelEx($model,'stage_three'); ?>
-        <?php echo $form->textField($model,'stage_three'); ?>
+        <?php echo $form->textField($model,'stage_three', array('placeholder'=>' Конец 3 этапа')); ?>
         <?php echo $form->error($model,'stage_three'); ?>
     </div>
 
     <div class="">
-        <?php echo $form->labelEx($model,'end'); ?>
-        <?php echo $form->textField($model,'end'); ?>
+        <?php echo $form->textField($model,'end', array('placeholder'=>' Финиш проекта')); ?>
         <?php echo $form->error($model,'end'); ?>
     </div>
 
     <div class="buttons">
-        <?php echo CHtml::submitButton('Cохранить', array('id'=>'save')); ?>
-        <?php echo CHtml::htmlButton('Отменить', array('id'=>'cancel')); ?>
+        <?php echo CHtml::ajaxSubmitButton('Сохранить', CHtml::normalizeUrl(array('admin/index')),
+            array(
+                'dataType'=>'json',
+                'type'=>'post',
+                'success'=>'function(data){
+                    $("div.errorMessage").text("");
+                    $("div.errorMessage").hide();
+                    if(data.status=="success"){
+                        window.location.replace("http://insmart/admin");
+                    }else{
+                        $.each(data, function(key, val) {
+                            $("#create-project #"+key+"_em_").text(val);
+                            $("#create-project #"+key+"_em_").show();
+                        });
+                    }
+                }'
+            ), array('class'=>'save btn')); 
+        ?>
+        <?php echo CHtml::htmlButton('Отменить', array('id'=>'cancel', 'class'=>'cancel btn')); ?>
     </div>
 
 <?php $this->endWidget(); ?>

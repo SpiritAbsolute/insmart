@@ -9,10 +9,35 @@ class StatusProject extends CActiveRecord{
     public function rules(){
         return array(
             array('name_project, login, password, start, stage_one, stage_two, stage_three, end', 'required'),
-            array('start, stage_one, stage_two, stage_three, end', 'numerical', 'integerOnly'=>true),
             array('name_project, login, password', 'length', 'max'=>40),
             array('id, name_project, login, password, start, stage_one, stage_two, stage_three, end', 'safe', 'on'=>'search'),
+            array('start, stage_one, stage_two, stage_three, end', 'check_date'),
         );
+    }
+    
+    public function check_date($attribute,$params) {
+        switch($attribute) {
+            case 'start':
+                if($this->start>$this->stage_one)
+                    $this->addError('start','Дата старта проекта должна быть меньше даты 1 этапа.');
+                break;
+            case 'stage_one':
+                if($this->stage_one>$this->stage_two)
+                    $this->addError('stage_one','Дата 1 этапа проекта должна быть меньше даты 2 этапа.');
+                break;
+            case 'stage_two':
+                if($this->stage_two>$this->stage_three)
+                    $this->addError('stage_two','Дата 2 этапа проекта должна быть меньше даты 3 этапа.');
+                break;
+            case 'stage_three':
+                if($this->stage_three>$this->end)
+                    $this->addError('stage_three','Дата 3 этапа проекта должна быть меньше даты финиша проекта.');
+                break;
+            case 'end':
+                if($this->end<$this->stage_three)
+                    $this->addError('end','Дата финиша проекта должна быть больше даты 3 этапа.');
+                break;
+        }
     }
 
     public function relations(){
@@ -23,7 +48,7 @@ class StatusProject extends CActiveRecord{
     public function attributeLabels(){
         return array(
             'id' => 'ID',
-            'name_project' => 'Проект',
+            'name_project' => 'Название проекта',
             'login' => 'Логин',
             'password' => 'Пароль',
             'start' => 'Старт проекта',
@@ -50,7 +75,7 @@ class StatusProject extends CActiveRecord{
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
             'pagination'=>array(
-                'pageSize'=>3,
+                'pageSize'=>100,
             ),
         ));
     }

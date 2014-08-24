@@ -1,3 +1,12 @@
+body {
+    font-family: 'PFDinDisplayProThin';
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+.container {
+    width: 1150px !important;
+}
 .personal_cont {
     margin-top: 45px;
 }
@@ -36,7 +45,21 @@
     color: white; 
     text-decoration: none; 
 }
-
+.navbar-fixed-top, .navbar-fixed-bottom {
+    z-index: 0 !important;
+}
+.errorMessage{
+    color: red;
+    font-size: 12px;
+}
+input.error {
+    border: 1px solid red !important;
+}
+/******* Отключение рамки ***********/
+input, textarea { outline:none; }
+input:active, textarea:active { outline:none; }
+:focus { outline:none; } 
+/************************************/
 
 
 
