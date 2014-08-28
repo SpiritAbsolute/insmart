@@ -39,10 +39,16 @@ class PersonalController extends CController{
         if(isset($_SESSION['check_login']) and $_SESSION['check_login']==$id){
             $model = new StatusProject;
             $model = StatusProject::model()->findByPk($id);
+            $date=[];
+            $date['start'] = date('d.m.Y',$model->start);
+            $date['stage_one'] = date('d.m.Y',$model->stage_one);
+            $date['stage_two'] = date('d.m.Y',$model->stage_two);
+            $date['stage_three'] = date('d.m.Y',$model->stage_three);
+            $date['end'] = date('d.m.Y',$model->end);
             $file = Yii::app()->getClientScript();
             $file->registerScriptFile('/js/view.js');
             $file->registerCssFile('/css/view.css');
-            $this->render('personal', array('model'=>$model));
+            $this->render('personal', array('model'=>$model, 'date'=>$date));
         }else{
             $this->redirect('/personal');
         }

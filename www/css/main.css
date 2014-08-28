@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: white;
+    //line-height: 0px;
 }
 .container {
     width: 1150px !important;
@@ -30,7 +31,7 @@ body {
 }
 .navbar .brand {
     margin: 0; 
-    padding: 13px 0px 0px 0px; 
+    padding: 12px 0;
     color: white; 
     font-size: 18px; 
     float: left;

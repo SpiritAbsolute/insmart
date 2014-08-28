@@ -28,15 +28,28 @@
         <?php echo $form->hiddenField($model,'stage_three',array('type'=>"hidden")); ?>
         <?php echo $form->hiddenField($model,'end',array('type'=>"hidden")); ?>
         <?php $this->endWidget(); ?>
-        <div class="wrapper">
+        <input type="hidden" id="start" value='<?= $date["start"];?>' />
+        <input type="hidden" id="stage_one" value='<?= $date["stage_one"];?>' />
+        <input type="hidden" id="stage_two" value='<?= $date["stage_two"];?>' />
+        <input type="hidden" id="stage_three" value='<?= $date["stage_three"];?>' />
+        <input type="hidden" id="end" value='<?= $date["end"];?>' />
+        <div class="progress_bar_main">
             <br />
-            <div class="strip_bar">
-                <center class="strip_bar_center" id="interest">0 %</center>
-            <img class="img_strip_bar" id="progress" src="http://sergey-oganesyan.ru/wp-content/uploads/2014/01/prograss.jpg" />
+            
+            <div class="strip_bar_new">
+                <span class="strip_bar_span" id="interest1"></span>
+                <span class="strip_bar_span" id="interest2"></span>
+                <span class="strip_bar_span" id="interest3"></span>
+                <span class="strip_bar_span" id="interest4"></span>
+                <span class="strip_bar_span" id="interest5"></span>
+                
+                <span class="strip_bar_span" id="interest6"></span>
+            <img class="img_strip_bar" id="progress1" src="/img/step1.jpg" />
+            <img class="img_strip_bar" id="progress2" src="/img/step2.jpg" />
+            <img class="img_strip_bar" id="progress3" src="/img/step3.jpg" />
+            <img class="img_strip_bar" id="progress4" src="/img/step4.jpg" />
             </div>
         </div>
-        
-        <div id="progressbar"></div>
         
         <div class="legend">
             <ul>

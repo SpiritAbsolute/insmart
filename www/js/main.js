@@ -1,7 +1,4 @@
 $(function() {
-    $("#progressbar").progressbar({
-        value: 37
-    });
     
     /******************* Datepicker backend ******************/
     var Now=new Date();

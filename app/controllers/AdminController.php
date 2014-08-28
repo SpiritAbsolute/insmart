@@ -15,33 +15,40 @@ class AdminController extends CController{
             $model=new StatusProject;
             $model->attributes=$_POST['StatusProject'];
             
-            if(!empty($model->start) && !empty($model->stage_one) && !empty($model->stage_two) && !empty($model->stage_three) && !empty($model->end)) {
-                $start=explode('.',$model->start);
-                if(count($start)==3) $model->start=mktime (0, 0, 0, $start[1], $start[0], $start[2]);
-                $stage_one=explode('.',$model->stage_one);
-                if(count($stage_one)==3) $model->stage_one=mktime (0, 0, 0, $stage_one[1], $stage_one[0], $stage_one[2]);
-                $stage_two=explode('.',$model->stage_two);
-                if(count($stage_two)==3) $model->stage_two=mktime (0, 0, 0, $stage_two[1], $stage_two[0], $stage_two[2]);
-                $stage_three=explode('.',$model->stage_three);
-                if(count($stage_three)==3) $model->stage_three=mktime (0, 0, 0, $stage_three[1], $stage_three[0], $stage_three[2]);
-                $end=explode('.',$model->end);
-                if(count($end)==3) $model->end=mktime (0, 0, 0, $end[1], $end[0], $end[2]);
-                if($model->save()) {
-                    echo CJSON::encode(array(
-                        'status'=>'success'
-                    ));
-                    Yii::app()->end();
+            if ($model->model()->count("login = :login", array(':login' => $model->login))) {
+                echo CJSON::encode(array(
+                    'status'=>'login'
+                ));
+                Yii::app()->end();
+            }else{
+                if(!empty($model->start) && !empty($model->stage_one) && !empty($model->stage_two) && !empty($model->stage_three) && !empty($model->end)) {
+                    $start=explode('.',$model->start);
+                    if(count($start)==3) $model->start=mktime (0, 0, 0, $start[1], $start[0], $start[2]);
+                    $stage_one=explode('.',$model->stage_one);
+                    if(count($stage_one)==3) $model->stage_one=mktime (0, 0, 0, $stage_one[1], $stage_one[0], $stage_one[2]);
+                    $stage_two=explode('.',$model->stage_two);
+                    if(count($stage_two)==3) $model->stage_two=mktime (0, 0, 0, $stage_two[1], $stage_two[0], $stage_two[2]);
+                    $stage_three=explode('.',$model->stage_three);
+                    if(count($stage_three)==3) $model->stage_three=mktime (0, 0, 0, $stage_three[1], $stage_three[0], $stage_three[2]);
+                    $end=explode('.',$model->end);
+                    if(count($end)==3) $model->end=mktime (0, 0, 0, $end[1], $end[0], $end[2]);
+                    if($model->save()) {
+                        echo CJSON::encode(array(
+                            'status'=>'success'
+                        ));
+                        Yii::app()->end();
+                    }else{
+                        $error = CActiveForm::validate($model);
+                        if($error!='[]')
+                            echo $error;
+                        Yii::app()->end();
+                    }
                 }else{
                     $error = CActiveForm::validate($model);
                     if($error!='[]')
                         echo $error;
                     Yii::app()->end();
                 }
-            }else{
-                $error = CActiveForm::validate($model);
-                if($error!='[]')
-                    echo $error;
-                Yii::app()->end();
             }
             
         }else{

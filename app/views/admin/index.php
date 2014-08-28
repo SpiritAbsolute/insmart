@@ -117,6 +117,9 @@
                     $("div.errorMessage").hide();
                     if(data.status=="success"){
                         window.location.replace("http://insmart/admin");
+                    }else if(data.status=="login"){
+                        $("#StatusProject_login_em_").text("Такой логин уже занят!");
+                        $("#StatusProject_login_em_").show();
                     }else{
                         $.each(data, function(key, val) {
                             $("#create-project #"+key+"_em_").text(val);

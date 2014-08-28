@@ -24,7 +24,8 @@
         
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/jquery-ui.min.css">
-	<link rel="stylesheet" href="/css/main.css"> 
+	<link rel="stylesheet" href="/css/main.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <?php echo $content; ?>
