@@ -115,59 +115,62 @@ window.onload = function() {
     
     // Для получения значения шага в 1% узнаем разницу между началом и концом это 100% и вычисляем 1% от нее и умножаем на 1000мс, получаем шаг var step
     var step = (value_100/100)*1000;
-    setInterval(go(px,procent_one,procent_two,procent_three,procent_now,width_span), step);
-}
-    //Увеличиваем процент и растягиваем полосу прогресса
-function go(px,procent_one,procent_two,procent_three,procent_now,width_span){
-    //Пока не 100% увеличиваем процент
-    if(interest != 100) {
-        interest++;
-        var date = new Date();
-        date=new Date(date.getFullYear(),date.getMonth(),date.getDate());
-        if(procent_now<procent_one){
-            $('#interest5').text(formatDate(date));
-            $('#interest5').append('<br /><i class="fa fa-caret-down" id="interest5_i"></i>');
-            $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
-            $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
-            $('#progress1').css({'width': ''+(parseInt($('#progress1').css('width').replace('px',''))+px)+'px'});
-            $('#interest5').show();
-            $('#interest5_i').show();
-            $('#progress1').show();
-        }else if((procent_now>=procent_one) && (procent_now<procent_two)){
-            $('#interest5').text(formatDate(date));
-            $('#interest5').append('<br /><i class="fa fa-caret-down" id="interest5_i"></i>');
-            $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
-            $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
-            $('#progress2').css({'width': ''+(parseInt($('#progress2').css('width').replace('px',''))+px)+'px'});
-            $('#interest5').show();
-            $('#interest5_i').show();
-            $('#progress2').show();
-        }else if((procent_now>=procent_two) && (procent_now<procent_three)){
-            $('#interest5').text(formatDate(date));
-            $('#interest5').append('<br /><i class="fa fa-caret-down" id="interest5_i"></i>');
-            $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
-            $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
-            $('#progress3').css({'width': ''+(parseInt($('#progress3').css('width').replace('px',''))+px)+'px'});
-            $('#interest5').show();
-            $('#interest5_i').show();
-            $('#progress3').show();
-        }else if(procent_now>=procent_three) {
-            $('#interest5').text(formatDate(date));
-            $('#interest5').append('<br /><br /><i class="fa fa-caret-down" id="interest5_i"></i>');
-            $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
-            $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
-            $('#progress4').css({'width': ''+(parseInt($('#progress4').css('width').replace('px',''))+px)+'px'});
-            $('#interest5').show();
-            $('#interest5_i').show();
-            $('#progress4').show();
-        }
-    }else{
-        $('#interest5').text('Завершен!');
-        $('#interest5').append('<br /><br /><i class="fa fa-caret-down" id="interest5_i"></i>');
-        $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
-        $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
-        $('#interest5').show();
-        $('#interest5_i').show();
+    
+    init(px,procent_one,procent_two,procent_three,procent_now,width_span,step);
+    function init(px,procent_one,procent_two,procent_three,procent_now,width_span,step) {
+        (function go() {
+            if(interest != 100) {
+                interest++;
+                $('#interest5').html('');
+                var date = new Date();
+                date=new Date(date.getFullYear(),date.getMonth(),date.getDate());
+                if(procent_now<procent_one){
+                    $('#interest5').text(formatDate(date));
+                    $('#interest5').append('<br /><i class="fa fa-caret-down" id="interest5_i"></i>');
+                    $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
+                    $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
+                    $('#progress1').css({'width': ''+(parseInt($('#progress1').css('width').replace('px',''))+px)+'px'});
+                    $('#interest5').show();
+                    $('#interest5_i').show();
+                    $('#progress1').show();
+                }else if((procent_now>=procent_one) && (procent_now<procent_two)){
+                    $('#interest5').text(formatDate(date));
+                    $('#interest5').append('<br /><i class="fa fa-caret-down" id="interest5_i"></i>');
+                    $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
+                    $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
+                    $('#progress2').css({'width': ''+(parseInt($('#progress2').css('width').replace('px',''))+px)+'px'});
+                    $('#interest5').show();
+                    $('#interest5_i').show();
+                    $('#progress2').show();
+                }else if((procent_now>=procent_two) && (procent_now<procent_three)){
+                    $('#interest5').text(formatDate(date));
+                    $('#interest5').append('<br /><i class="fa fa-caret-down" id="interest5_i"></i>');
+                    $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
+                    $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
+                    $('#progress3').css({'width': ''+(parseInt($('#progress3').css('width').replace('px',''))+px)+'px'});
+                    $('#interest5').show();
+                    $('#interest5_i').show();
+                    $('#progress3').show();
+                }else if(procent_now>=procent_three) {
+                    $('#interest5').text(formatDate(date));
+                    $('#interest5').append('<br /><br /><i class="fa fa-caret-down" id="interest5_i"></i>');
+                    $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
+                    $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
+                    $('#progress4').css({'width': ''+(parseInt($('#progress4').css('width').replace('px',''))+px)+'px'});
+                    $('#interest5').show();
+                    $('#interest5_i').show();
+                    $('#progress4').show();
+                }
+                setTimeout(go, step);
+            }else{
+                $('#interest5').text('Завершен!');
+                $('#interest5').append('<br /><br /><i class="fa fa-caret-down" id="interest5_i"></i>');
+                $('#interest5').css({'margin':'-10px 0px 0px '+((interest * px)-width_span)+'px'});
+                $('#interest5_i').css({'padding':'0px 0px 0px 25px'});
+                $('#interest5').show();
+                $('#interest5_i').show();
+            }    
+        })();
     }
 }
 
